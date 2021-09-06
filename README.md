@@ -9,5 +9,5 @@ Le jeu memory qui a bercé votre enfance
     </ul>
     </p>
     <h2>Les images</h2>
-    <img src="images/cards.png" style="width: 100px;height: 100px;margin: 6px;border-radius: 12px;background-position='-5px 0px'">
-        <img src="images/cards.png" style="width: 100px;height: 100px;margin: 6px;border-radius: 12px;background-position='-5px 100px'">
+    <img src="images/cards.png" style="width: 100px;height: 100px;margin: 6px;border-radius: 12px;background-position=-5px 0px">
+        <img src="images/cards.png" style="width: 100px;height: 100px;margin: 6px;border-radius: 12px;background-position=-5px 100px">
