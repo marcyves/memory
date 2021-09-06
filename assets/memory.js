@@ -10,21 +10,14 @@ class Memory {
         this.displayBoard();       
         this.displayScore();
     }
-    
-    shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-    
+       
     createDeck(max){
         //TODO tester max est pair
         for(let i=0;i<max/2;i++){
             this.deck[i] = i;
             this.deck[i + max/2] = i;
         }
-        this.shuffle(this.deck);
+        shuffle(this.deck);
         console.log(this.deck);
     }
 
@@ -83,6 +76,13 @@ class Memory {
                         '<div class="no"> <a href="score.html"> NO </a> </div></div></div>';    
     }
 
+}
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 function cardSelected(n){
