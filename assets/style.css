@@ -1,0 +1,30 @@
+body{
+    background-color: bisque;
+}
+
+.instructions{
+    background-color: rgb(230, 230, 230);
+    margin: 12px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.plateau{
+    background-color: darkolivegreen;
+    margin: 12px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.plateau > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+.carte{
+    background: rgb(231,52,52);
+    background: radial-gradient(circle, rgba(231,52,52,1) 0%, rgba(156,80,149,1) 25%, rgba(0,212,255,1) 100%);
+    border-radius: 12px;
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+}
