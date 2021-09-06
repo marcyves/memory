@@ -1,11 +1,57 @@
 function buildCard(n){
-    return "<button class='carte' id='card" + n + "' onClick='card(" + n + ")'></button>";
+    return "<button class='carte card_down' id='card" + n + "' onClick='cardSelected(" + n + ")'></button>";
 }
 
-function card(n){
-    console.log("deck[" + n + "] = " + deck[n]);
-    let card = document.getElementById('card'+n);
-    card.innerHTML = "<h1>" + deck[n] + "</h1>";
+function displayCard(n){
+    let button = document.getElementById('card'+n);
+    button.classList.add("card_up");
+    button.classList.remove("card_down");
+    button.style.backgroundPosition = "-5px " + 100*deck[n] +"px";
+}
+
+function resetCard(n){
+    let button = document.getElementById('card'+n);
+    button.classList.remove("card_up");
+    button.classList.add("card_down");
+    button.style.backgroundPosition = "";
+}
+
+function cardSelected(n){
+    console.log("Card selected is deck[" + n + "] = " + deck[n]);
+    displayCard(n);
+
+    if (card_selected){
+        oneStep();
+        console.log("Is it ? deck[" + card_one + "] = " + deck[card_one]);
+        if (deck[card_one] === deck[n]){
+            alert("Good spot");
+            pairFound();
+            card_selected = false;
+        }else{
+            alert("Looser")
+            resetCard(n);
+            resetCard(card_one);
+            card_selected = false;
+        }
+    }else{
+        card_one = n;
+        card_selected = true    
+    }
+}
+
+function displayScore(){
+    let elt = document.getElementById('score');
+    elt.innerHTML = "<h2>Votre score : " + step +" Découverts : " + found + "</h2>";
+}
+
+function oneStep(){
+    step++;
+    displayScore();
+}
+
+function pairFound(){
+    found++;
+    displayScore();
 }
 
 function shuffle(array) {
@@ -26,7 +72,7 @@ function createDeck(max){
     console.log(deck);
 }
 
-let max_card = 28;
+let max_card = 18 * 2;
 createDeck(max_card);
 
 card_selected = false;
@@ -40,3 +86,6 @@ for(let i=0;i<max_card;i++){
 
 elt.innerHTML = tmp;
 
+step = 0;
+found = 0;
+displayScore();
