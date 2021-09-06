@@ -24,7 +24,6 @@ function cardSelected(n){
         oneStep();
         console.log("Is it ? deck[" + card_one + "] = " + deck[card_one]);
         if (deck[card_one] === deck[n]){
-            alert("Good spot");
             pairFound();
             card_selected = false;
         }else{
@@ -52,8 +51,19 @@ function oneStep(){
 function pairFound(){
     found++;
     displayScore();
+    if (found === max_card/2){
+        gameOver();
+    }
 }
 
+function gameOver(){
+    let elt = document.getElementById('plateau');
+    elt.innerHTML = '<div id="tudo"><div class="gameover"><p> GAME </p><p> OVER </p></div>' +
+                    '<div class="continue"> <p> CONTINUE? </p> </div>' +
+                    '<div class="opcoes">' +
+                    '<div class="yes"> <a href="index.html"> YES </a> </div>' +
+                    '<div class="no"> <a href="score.html"> NO </a> </div></div></div>';    
+}
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -72,7 +82,7 @@ function createDeck(max){
     console.log(deck);
 }
 
-let max_card = 18 * 2;
+let max_card = 2 * 2;
 createDeck(max_card);
 
 card_selected = false;
