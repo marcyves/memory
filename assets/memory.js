@@ -8,7 +8,7 @@ class Memory {
         // Build and display welcome screen
         var mydata = JSON.parse(jsn_msg);
         this.displayMessage(mydata[0].welcome, 'message');
-        this.displayMessage(mydata[0].menu + "il y a "+demo_deck+" cartes en jeu.</p>", 'titre');
+        this.displayMessage(mydata[0].menu + "il y a "+demo_deck+" cartes en jeu au total.</p>", 'titre');
 
 
         this.createDemoDeck(demo_deck);      
@@ -45,7 +45,7 @@ class Memory {
 
         for(let i=0;i<this.max_card/2;i++){
             this.deck[i] = i;
-            this.deck[i + this.max_cardmax/2] = i;
+            this.deck[i + this.max_card/2] = i;
         }
         shuffle(this.deck);
         console.log("Le paquet de " + this.max_card + " cartes en jeu: " + this.deck);
