@@ -2,20 +2,26 @@ class Memory {
 
     constructor(){
 
-        let demo_deck = 18;
-        this.max_card = 0;
-
-        // Build and display welcome screen
-        var mydata = JSON.parse(jsn_msg);
-        this.displayMessage(mydata[0].welcome, 'message');
-        this.displayMessage(mydata[0].menu + "il y a "+demo_deck+" cartes en jeu au total.</p>", 'titre');
-
-
-        this.createDemoDeck(demo_deck);      
-        this.displayBoard(demo_deck);       
-        for(let i=0;i<demo_deck;i++){
-            this.displayCard(i);
-        }    
+        if(window.location.search === ""){
+            let demo_deck = 18;
+            this.max_card = 0;
+    
+            // Build and display welcome screen
+            var mydata = JSON.parse(jsn_msg);
+            this.displayMessage(mydata[0].welcome, 'message');
+            this.displayMessage(mydata[0].menu + "il y a "+demo_deck+" cartes en jeu au total.</p>", 'titre');
+    
+    
+            this.createDemoDeck(demo_deck);      
+            this.displayBoard(demo_deck);       
+            for(let i=0;i<demo_deck;i++){
+                this.displayCard(i);
+            }
+        }else if (window.location.search === "?score"){
+            this.displayMessage("<h1>Hall of Fame</h1>", 'message')
+            this.displayMessage("<h2>Les grands noms du memory</h2>", 'titre');
+        }
+    
     }
 
     start(cards){
@@ -57,7 +63,11 @@ class Memory {
     }
 
     displayScore(){
-        this.displayMessage("<h2>Votre score : " + this.step +" Découverts : " + this.found + "</h2>", 'titre');
+        let ortho = "";
+        if (this.found>1){
+            ortho = "s";
+        }
+        this.displayMessage("<h2>Vous avez découvert " + this.found + " paire" + ortho + " en " + this.step + " étapes</h2>", 'titre');
     }
     
     displayBoard(n){
@@ -103,11 +113,7 @@ class Memory {
 
     gameOver(){
         let elt = document.getElementById('plateau');
-        elt.innerHTML = '<div id="tudo"><div class="gameover"><p> GAME </p><p> OVER </p></div>' +
-                        '<div class="continue"> <p> CONTINUE? </p> </div>' +
-                        '<div class="opcoes">' +
-                        '<div class="yes"> <a href="index.html"> YES </a> </div>' +
-                        '<div class="no"> <a href="score.html"> NO </a> </div></div></div>';    
+        elt.innerHTML = '<div id="tudo"><div class="gameover"><p> GAME </p><p> OVER </p></div></div>';    
     }
 
 }

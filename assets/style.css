@@ -1,6 +1,12 @@
 body{
     background-color: bisque;
 }
+footer{
+    background-color: rgb(230, 230, 230);
+    color: rgb(154, 154, 154);
+    font-size: small;
+    padding: 12px;
+}
 
 #message{
     background-color: rgb(230, 230, 230);
