@@ -1,41 +1,75 @@
 class Memory {
-    constructor(cards){
+
+    constructor(){
+
+        let demo_deck = 18;
+        this.max_card = 0;
+
+        // Build and display welcome screen
+        var mydata = JSON.parse(jsn_msg);
+        this.displayMessage(mydata[0].welcome, 'message');
+        this.displayMessage(mydata[0].menu + "il y a "+demo_deck+" cartes en jeu.</p>", 'titre');
+
+
+        this.createDemoDeck(demo_deck);      
+        this.displayBoard(demo_deck);       
+        for(let i=0;i<demo_deck;i++){
+            this.displayCard(i);
+        }    
+    }
+
+    start(cards){
+
         this.max_card = cards * 2;
         this.card_selected = false;
         this.step = 0;
         this.found = 0;
-        this.deck = [];
-
-        this.createDeck(this.max_card);      
-        this.displayBoard();       
+        
+        this.createDeck();      
+        this.displayBoard(this.max_card);       
         this.displayScore();
     }
        
-    createDeck(max){
-        //TODO tester max est pair
-        for(let i=0;i<max/2;i++){
+    createDemoDeck(n){
+        this.deck = [];
+        this.deck.length = 0;
+
+        for(let i=0;i<n;i++){
             this.deck[i] = i;
-            this.deck[i + max/2] = i;
+        }
+    }
+
+    createDeck(){
+        this.deck = [];
+        this.deck.length = 0;
+
+        for(let i=0;i<this.max_card/2;i++){
+            this.deck[i] = i;
+            this.deck[i + this.max_cardmax/2] = i;
         }
         shuffle(this.deck);
-        console.log(this.deck);
+        console.log("Le paquet de " + this.max_card + " cartes en jeu: " + this.deck);
+    }
+
+    displayMessage(m, type){
+        let elt = document.getElementById(type);
+        elt.innerHTML = m;
     }
 
     displayScore(){
-        let elt = document.getElementById('score');
-        elt.innerHTML = "<h2>Votre score : " + this.step +" Découverts : " + this.found + "</h2>";
+        this.displayMessage("<h2>Votre score : " + this.step +" Découverts : " + this.found + "</h2>", 'titre');
     }
     
-    displayBoard(){
+    displayBoard(n){
         let tmp = "";
         let elt = document.getElementById('plateau');
-        for(let i=0;i<this.max_card;i++){
+        for(let i=0;i<n;i++){
             tmp += this.buildCard(i);
         }
         
         elt.innerHTML = tmp;
     }
-    
+
     buildCard(n){
         return "<button class='carte card_down' id='card" + n + "' onClick='cardSelected(" + n + ")'></button>";
     }
@@ -86,24 +120,30 @@ function shuffle(array) {
 }
 
 function cardSelected(n){
-    game.displayCard(n);
-
-    if (game.card_selected){
-        game.oneStep();
-        if (game.deck[card_one] === game.deck[n]){
-            game.pairFound();
-            game.card_selected = false;
-        }else{
-            alert("Looser")
-            game.resetCard(n);
-            game.resetCard(card_one);
-            game.card_selected = false;
-        }
+    if(game.max_card === 0){
+        // Le jeu n'a pas démarré
+        game.start(n+1);
     }else{
-        card_one = n;
-        game.card_selected = true;
+        // Le jeu est en route
+        game.displayCard(n);
+
+        if (game.card_selected){
+            game.oneStep();
+            if (game.deck[card_one] === game.deck[n]){
+                game.pairFound();
+                game.card_selected = false;
+            }else{
+                alert("Looser")
+                game.resetCard(n);
+                game.resetCard(card_one);
+                game.card_selected = false;
+            }
+        }else{
+            card_one = n;
+            game.card_selected = true;
+        }    
     }
 }
 
-const game = new Memory(2);
+const game = new Memory();
 

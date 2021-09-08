@@ -31,17 +31,10 @@
             </nav>            
     </header>
     <main>
-        <section class="instructions">
-            <p>Au commencement du jeu, des cartes sont disposées face cachée à l'écran.
-                <ul>
-                    <li>Le joueur doit cliquer sur deux cartes. Si celles-ci sont identiques, la paire est validée. Sinon, les cartes sont retournées face cachée, et le joueur doit sélectionner une nouvelle paire de cartes.</li>
-                    <li>Une compteur de temps, avec une barre de progression, s’affiche en dessous du plateau.</li>
-                    <li>Le joueur gagne s'il arrive à découvrir toutes les paires avant la fin du temps imparti.</li>
-                </ul>
-             </p>     
+        <section id="message">
         </section>
         <section class="plateau">
-            <div id="score"></div>
+            <div id="titre"></div>
             <div id="plateau"></div>
         </section>
         </main>
@@ -50,6 +43,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>    
+    <script src="assets/messages.json"></script>
     <script src="assets/memory.js"></script>
 </body>
 </html>
