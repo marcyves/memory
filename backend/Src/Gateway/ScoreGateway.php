@@ -29,4 +29,23 @@ class ScoreGateway {
         }
     }
 
+    public function insert(Array $input)
+    {
+        $sql = "INSERT INTO `wall_of_fame` 
+            (`name`, `score`) 
+        VALUES
+            (:name, :score);
+            ";
+
+        try{
+            $sql = $this->db->prepare($sql);
+            $sql->execute(array(
+                'name' => $input['name'],
+                'score' => $input['score']
+            ));
+            return $sql->rowCount();
+        } catch (\PDOException $e){
+            exit($e->getMessage());
+        }
+    }
 }

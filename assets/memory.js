@@ -20,6 +20,7 @@ class Memory {
         }else if (window.location.search === "?score"){
             this.displayMessage("<h1>Hall of Fame</h1>", 'message')
             this.displayMessage("<h2>Les grands noms du memory</h2>", 'titre');
+            this.displayHallOfFame();
         }
     
     }
@@ -62,6 +63,20 @@ class Memory {
         elt.innerHTML = m;
     }
 
+    displayHallOfFame(){
+
+        fetch("http://127.0.0.1:8000/score")
+        .then(ListeScore => ListeScore.json())
+        .then(scores =>{
+            let AfficheScore = "<ul>";
+            for(let score of scores){
+                AfficheScore += `<li>${score.name} : ${score.score}</li>`;
+            }
+            AfficheScore += "</ul>";
+            document.getElementById('plateau').innerHTML = AfficheScore;
+        });
+
+    }
     displayScore(){
         let ortho = "";
         if (this.found>1){
@@ -107,13 +122,27 @@ class Memory {
         this.found++;
         this.displayScore();
         if (this.found === this.max_card/2){
-            this.gameOver();
-        }
-    }
+            // Save score
+            const data ={ name: 'marc', score: '01:02:03'};
 
-    gameOver(){
-        let elt = document.getElementById('plateau');
-        elt.innerHTML = '<div id="tudo"><div class="gameover"><p> GAME </p><p> OVER </p></div></div>';    
+            fetch('http://127.0.0.1:8000/score', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Score ajouté: ', data);
+            })
+            .catch((error) => {
+                console.error('Erreur enregistrement score: ', error);
+            });
+            // Dsiplay game over message
+            document.getElementById('plateau').innerHTML = '<div id="tudo"><div class="gameover"><p> GAME </p><p> OVER </p></div></div>';    
+        }
     }
 
 }

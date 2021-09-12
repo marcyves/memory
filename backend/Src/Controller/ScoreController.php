@@ -72,10 +72,10 @@ class ScoreController {
 
     private function validateScore($input)
     {
-        if (! isset($input['firstname'])) {
+        if (! isset($input['name'])) {
             return false;
         }
-        if (! isset($input['lastname'])) {
+        if (! isset($input['score'])) {
             return false;
         }
         return true;
