@@ -1,5 +1,7 @@
 <?php
 
+require 'Src/autoload.php';
+
 use Src\System\DatabaseConnector;
 use Src\Controller\ScoreController;
 
