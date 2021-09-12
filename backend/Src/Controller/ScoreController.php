@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Controller;
+namespace Controller;
 
-use Src\ScoreGateway;
+use Gateway\ScoreGateway;
 
 class ScoreController {
 
@@ -28,17 +28,17 @@ class ScoreController {
                 if ($this->userId) {
                     $response = $this->getUser($this->userId);
                 } else {
-                    $response = $this->getAllUsers();
+                    $response = $this->getAllScores();
                 };
                 break;
             case 'POST':
-                $response = $this->createUserFromRequest();
+                $response = $this->createScoreFromRequest();
                 break;
             case 'PUT':
-                $response = $this->updateUserFromRequest($this->userId);
+                $response = $this->updateScoreFromRequest($this->userId);
                 break;
             case 'DELETE':
-                $response = $this->deleteUser($this->userId);
+                $response = $this->deleteScore($this->userId);
                 break;
             default:
                 $response = $this->notFoundResponse();

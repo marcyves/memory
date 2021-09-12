@@ -1,9 +1,16 @@
 <?php
 
+/*
+
+start server with:
+php -S 127.0.0.1:8000 -t backend
+
+*/
+
 require 'Src/autoload.php';
 
-use Src\System\DatabaseConnector;
-use Src\Controller\ScoreController;
+use System\DatabaseConnector;
+use Controller\ScoreController;
 
 $dbConnection = (new DatabaseConnector())->getConnection();
 

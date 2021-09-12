@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Gateway;
+namespace Gateway;
 
 class ScoreGateway {
 
