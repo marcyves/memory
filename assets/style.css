@@ -42,3 +42,20 @@ footer{
 .card_up {
     background: url('../images/cards.png');
 }
+/* progress bar */
+ 
+  .progress-container {
+    height: 0.8rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    background: #000;
+  }
+  
+  .progress-container .progress {
+    height: 100%;
+    width: 0;
+    border-radius: 0.4rem;
+    background: #ff4754;
+    transition: width 0.4s ease;
+  }
+  
