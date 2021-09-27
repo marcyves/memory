@@ -15,7 +15,7 @@ Le jeu memory qui a bercé votre enfance
 ### Le backend
 La partie backend nécessite une base de données MySQL et un serveur PHP.
 
-Une fois créée une base de données `memory`il est possible de créer l'unique table utilisée par le système et d'y injecter un promier jeu de données d'exemple avec le script `memory.sql` présent dans le dossier `backend/System`.
+Une fois créée une base de données `memory` il est possible de créer l'unique table utilisée par le système et d'y injecter un promier jeu de données d'exemple avec le script `memory.sql` présent dans le dossier `backend/System`.
 
 Il est également possible de démarrer le serveur PHP dans le terminal au moyen de la commande suivante à passer depuis le répertoire racine du projet :
 
