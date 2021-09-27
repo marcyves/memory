@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "memories",
+  "info": {
+    "name": "memory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "score": {
+      "type": "time"
+    }
+  }
+}
