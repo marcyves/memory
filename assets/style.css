@@ -1,3 +1,4 @@
+
 body{
     background-color: bisque;
 }
@@ -58,4 +59,16 @@ footer{
     background: #ff4754;
     transition: width 0.4s ease;
   }
+
+.fail{
+      background-color: #ff4754;
+      padding: 12px 48px;
+      border-radius: 12px;
+}
   
+#titre{
+    background-color: rgb(245, 201, 143);
+    margin: 0 5% 24px 5%;
+    padding: 12px 48px;
+    border-radius: 12px;
+}

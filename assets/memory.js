@@ -210,19 +210,16 @@ function cardSelected(n){
         game.start(n+1);
     }else{
         // Le jeu est en route
-        game.displayCard(n);
-
-        if (game.card_selected){
-            // Une carte a déjà été choisie
-            if (game.GetNotFound()){
-                // La deuxième carte était différente
-                game.resetCard(card_one);
-                game.resetCard(card_two);
-                game.SetNotFound(false);
-                game.card_selected = false;
-                game.displayScore();
-            }else{
-                // On a sélectionné une deuxième carte
+        if (!game.card_selected){
+            // une première carte est choisie, on affiche et enregistre
+            game.displayCard(n);
+            card_one = n;
+            game.card_selected = true;
+        }else{
+            // Une carte a déjà été choisie, on a sélectioné une autre
+            if (!game.GetNotFound()){
+                // On a sélectionné une deuxième carte, on affiche et on teste
+                game.displayCard(n);
                 game.oneStep();
                 if (game.deck[card_one] === game.deck[n]){
                     // Une paire est trouvée
@@ -231,15 +228,18 @@ function cardSelected(n){
                     game.pairFound();
                 }else{
                     // La deuxième carte est différente
-                    displayMessage("<h4>Raté</h4>", "titre");
+                    displayMessage("<h4 class='fail'>Raté</h4>", "titre");
                     game.SetNotFound(true);
                     card_two = n;
                 }
+            }else{
+                // La deuxième carte était différente, on efface ce qui a été sélectionné
+                game.resetCard(card_one);
+                game.resetCard(card_two);
+                game.SetNotFound(false);
+                game.card_selected = false;
+                game.displayScore();
             }
-        }else{
-            //première carte de la paire
-            card_one = n;
-            game.card_selected = true;
         }    
     }
 }
