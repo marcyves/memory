@@ -1,0 +1,27 @@
+.plateau{
+    background-color: rgb(159, 195, 98);
+    margin: 12px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.plateau > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.carte{
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+    border-radius: 12px;
+}
+
+.card_down{
+    background: rgb(231,52,52);
+    background: radial-gradient(circle, rgba(231,52,52,1) 0%, rgba(156,80,149,1) 25%, rgba(0,212,255,1) 100%);
+}
+
+.card_up {
+    background: url('../images/cards.png');
+}

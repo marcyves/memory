@@ -1,0 +1,32 @@
+//bouton j'aime
+.fav-icon
+{
+    cursor: pointer;
+    font-size: 2.3rem;
+    position: absolute;
+
+    & .fav-icon--solid
+    {
+        opacity: 0;
+    }
+
+    & .fav-icon--empty
+    {
+        margin-top: -0.05rem;
+    }
+}
+
+.fav-input:checked + .fav-icon span
+{
+    background: -webkit-gradient(linear, right top, left bottom, from($primary-color), to($secondary-color));
+    background: -webkit-linear-gradient(top right, $primary-color, $secondary-color);
+    background: -o-linear-gradient(top right, $primary-color, $secondary-color);
+    background: linear-gradient(to bottom left, $primary-color, $secondary-color);
+    /*background-clip: text;*/
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 1;
+    -webkit-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+}

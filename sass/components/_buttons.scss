@@ -1,0 +1,26 @@
+//boutons principaux
+.btn
+{
+    height: 5rem;
+    border-radius: 2.5rem;
+    @include box-darkshadow; 
+    background: -webkit-gradient(linear, left top, right bottom, from($secondary-color), to($primary-color)); 
+    background: -webkit-linear-gradient(top left, $secondary-color, $primary-color); 
+    background: -o-linear-gradient(top left, $secondary-color, $primary-color); 
+    background: linear-gradient(to bottom right, $secondary-color, $primary-color);
+    color: $white-color;
+    @include font ($text-font, 1.6rem, 400);
+    @include flex-center;
+    &:visited, &:hover
+    {
+        color: $white-color;
+    }
+    &:hover
+    {
+        background: -webkit-gradient(linear, left top, right bottom, from(lighten($secondary-color, 5%)), to(lighten($primary-color, 5%)));
+        background: -webkit-linear-gradient(top left, lighten($secondary-color, 5%), lighten($primary-color, 5%));
+        background: -o-linear-gradient(top left, lighten($secondary-color, 5%), lighten($primary-color, 5%));
+        background: linear-gradient(to bottom right, lighten($secondary-color, 5%), lighten($primary-color, 5%));
+        @include box-bigshadow;
+    }
+}

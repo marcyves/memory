@@ -1,0 +1,22 @@
+.header
+{
+    min-height: 6.3rem;
+    padding-top: 2.3rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    
+    &__logo
+    {
+        width: 44%;
+    }
+    
+    .fa-arrow-left
+    {
+        font-size: 2rem;
+        color: $grey-color;
+        position: absolute;
+        left: 2.3rem;
+        top: 2.5rem;
+    }
+}

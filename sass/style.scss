@@ -1,0 +1,14 @@
+@import "utilities/variables";
+@import "utilities/mixins";
+
+@import "base/base";
+@import "components/loader";
+@import "components/buttons";
+@import "components/favorite";
+@import "components/slider-up";
+@import "components/add-dish";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home";

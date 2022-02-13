@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before 
+{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html, body
+{
+    width: 100%;
+    min-width: 32rem;
+    max-width: 102.4rem;
+    margin: 0 auto;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: $white-color;
+    font-size: $base-fontsize;
+    color: $black-color;
+}
+
+ul, li, a
+{
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    &:visited, &:hover
+    {
+        color: inherit;
+    }
+}
+
+#message{
+    background-color: rgb(230, 230, 230);
+    margin: 12px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+/* progress bar */
+ 
+  .progress-container {
+    height: 0.8rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    background: #000;
+  }
+  
+  .progress-container .progress {
+    height: 100%;
+    width: 0;
+    border-radius: 0.4rem;
+    background: #ff4754;
+    transition: width 0.4s ease;
+  }
+
+.fail{
+      background-color: #ff4754;
+      padding: 12px 48px;
+      border-radius: 12px;
+}
+  
+#titre{
+    background-color: rgb(245, 201, 143);
+    margin: 0 5% 24px 5%;
+    padding: 12px 48px;
+    border-radius: 12px;
+}

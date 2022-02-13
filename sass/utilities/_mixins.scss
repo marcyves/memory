@@ -1,0 +1,99 @@
+//box-shadows
+@mixin box-topshadow 
+{
+    -webkit-box-shadow: inset 0 .2rem .5rem lighten($grey-color, 60%);
+    box-shadow: inset 0 .2rem .5rem lighten($grey-color, 60%);
+}
+@mixin box-darkshadow 
+{
+    -webkit-box-shadow: 0 .5rem 1rem 0 lighten($grey-color, 60%);
+    box-shadow: 0 .5rem 1rem 0 lighten($grey-color, 60%);
+}
+@mixin box-bigshadow 
+{
+    -webkit-box-shadow: 0 .6rem 1.2rem 0 lighten($grey-color, 30%);
+    box-shadow: 0 .6rem 1.2rem 0 lighten($grey-color, 30%);
+}
+@mixin box-lightshadow 
+{
+    -webkit-box-shadow: 0 .6rem .8rem 0 lighten($grey-color, 69%);
+    box-shadow: 0 .6rem .8rem 0 lighten($grey-color, 69%);
+}
+@mixin box-littleshadow 
+{
+    -webkit-box-shadow: 0 .1rem .5rem 0 lighten($grey-color, 30%);
+    box-shadow: 0 .1rem .5rem 0 lighten($grey-color, 30%);
+}
+
+//flexbox
+@mixin flex-center 
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+@mixin flex-between
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+@mixin flex-column
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+@mixin flex-column-between 
+{
+    @include flex-column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+@mixin flex-wrap-around
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+
+
+
+//font styling
+@mixin font($family, $size, $weight, $line-height:1) 
+{
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}
+
+//breakpoints
+@mixin breakpoint {
+    @media only screen and (min-width: 768px)
+    {
+        @content;
+    }
+}
